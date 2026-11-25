@@ -101,14 +101,15 @@ button{font:inherit;cursor:pointer;border-radius:6px}
 </main>
 
 <script type="module">
-/* ============ حط إعدادات Firebase هنا (اتركها زي ما هي للتجربة على جهازك) ============ */
 const firebaseConfig = {
-  apiKey: "حط-الكود-هنا",
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project",
-  appId: "your-app-id"
+  apiKey: "AIzaSyAdbgUr0F24r0B9wWjdIZgMCvFxExPDch0",
+  authDomain: "library-cf11d.firebaseapp.com",
+  projectId: "library-cf11d",
+  storageBucket: "library-cf11d.firebasestorage.app",
+  messagingSenderId: "845112290756",
+  appId: "1:845112290756:web:9fb7ec85acaf64cf1d0891",
+  measurementId: "G-D07WM2RFQD"
 };
-/* ================================================================================ */
 
 const ADMIN_USER = "ammin";
 const ADMIN_EMAIL = ADMIN_USER + "@library.app";
@@ -290,7 +291,7 @@ function drawCart() {
   const ul = h("ul");
   cart.forEach((b, id) => ul.append(h("li", {}, h("span", {}, b.title),
     h("button", { className: "danger", textContent: "×", onclick: () => { cart.delete(id); drawBooks(); drawCart(); } }))));
-  const msg = h("p", { className: "msg", role: "alert" });
+  const msg = h("p", { className: "msg", role="alert" });
   const send = h("button", { className: "primary", textContent: "إرسال الطلب", onclick: async () => {
     if (!phone.trim()) return say(msg, "اكتب رقم موبايلك.");
     try {
@@ -328,52 +329,6 @@ function drawOrders() {
   $("noOrders").hidden = orders.length > 0;
   $("noOrders").textContent = user.isAdmin ? "مفيش طلبات لسه." : "ماعملتش طلبات لسه.";
 }
-</script>
-  <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyAdbgUr0F24r0B9wWjdIZgMCvFxExPDch0",
-    authDomain: "library-cf11d.firebaseapp.com",
-    projectId: "library-cf11d",
-    storageBucket: "library-cf11d.firebasestorage.app",
-    messagingSenderId: "845112290756",
-    appId: "1:845112290756:web:9fb7ec85acaf64cf1d0891",
-    measurementId: "G-D07WM2RFQD"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-  <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyAdbgUr0F24r0B9wWjdIZgMCvFxExPDch0",
-    authDomain: "library-cf11d.firebaseapp.com",
-    projectId: "library-cf11d",
-    storageBucket: "library-cf11d.firebasestorage.app",
-    messagingSenderId: "845112290756",
-    appId: "1:845112290756:web:9fb7ec85acaf64cf1d0891",
-    measurementId: "G-D07WM2RFQD"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
 </script>
 </body>
 </html>
