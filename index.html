@@ -101,6 +101,7 @@ button{font:inherit;cursor:pointer;border-radius:6px}
 </main>
 
 <script type="module">
+/* ============ إعدادات Firebase لمشروع library-cf11d ============ */
 const firebaseConfig = {
   apiKey: "AIzaSyAdbgUr0F24r0B9wWjdIZgMCvFxExPDch0",
   authDomain: "library-cf11d.firebaseapp.com",
@@ -110,6 +111,7 @@ const firebaseConfig = {
   appId: "1:845112290756:web:9fb7ec85acaf64cf1d0891",
   measurementId: "G-D07WM2RFQD"
 };
+/* ============================================================== */
 
 const ADMIN_USER = "ammin";
 const ADMIN_EMAIL = ADMIN_USER + "@library.app";
@@ -155,11 +157,73 @@ if (live) {
   const K = "library-demo";
   const load = () => JSON.parse(localStorage.getItem(K) || "null") ||
     { users: [{ uid: "admin", name: "المدير", email: ADMIN_USER, pass: "yu1122", isAdmin: true }], books: [], orders: [], session: null };
-  let D = load();
-  let authCb;
+  let D = load, authCb; D = load();
   const subs = new Set();
   const save = () => { localStorage.setItem(K, JSON.stringify(D)); subs.forEach((f) => f()); };
   const cur = () => { const u = D.users.find((x) => x.uid === D.session); return u && { uid: u.uid, name: u.name, email: u.email, isAdmin: !!u.isAdmin }; };
   const watch = (f) => { subs.add(f); f(); return () => subs.delete(f); };
   addEventListener("storage", () => { D = load(); subs.forEach((f) => f()); });
   api = {
+    onAuth: (cb) => { authCb = cb; cb(cur()); },
+    login: async (id, p) => {
+      const u = D.users.find((x) => x.email.toLowerCase() === id.toLowerCase() && x.pass === p);
+      if (!u) throw { code: "auth/invalid-credential" };
+      D.session = u.uid; save(); authCb(cur());
+    },
+    register: async (n, e, p) => {
+      if (p.length < 6) throw { code: "auth/weak-password" };
+      if (D.users.some((x) => x.email.toLowerCase() === e.toLowerCase())) throw { code: "auth/email-already-in-use" };
+      const u = { uid: "u" + Date.now(), name: n, email: e, pass: p };
+      D.users.push(u); D.session = u.uid; save(); authCb(cur());
+    },
+    logout: async () => { D.session = null; save(); authCb(null); },
+    watchBooks: (cb) => watch(() => cb([...D.books])),
+    addBook: async (b) => { D.books.unshift({ id: "b" + Date.now(), ...b, createdAt: Date.now() }); save(); },
+    delBook: async (id) => { D.books = D.books.filter((b) => b.id !== id); save(); },
+    addOrder: async (o) => { D.orders.unshift({ id: "o" + Date.now(), ...o, createdAt: Date.now() }); save(); },
+    watchOrders: (u, cb) => watch(() => cb(D.orders.filter((o) => u.isAdmin || o.uid === u.uid))),
+    setStatus: async (id, s) => { D.orders.find((o) => o.id === id).status = s; save(); }
+  };
+  const bn = document.getElementById("banner");
+  bn.hidden = false;
+  bn.textContent = "وضع التجربة: البيانات محفوظة على جهازك بس، والطلبات مش هتوصل للمدير من جهاز تاني. عشان تشتغل بجد حط إعدادات Firebase في الكود.";
+}
+
+/* ---------------- الواجهة ---------------- */
+const $ = (id) => document.getElementById(id);
+const h = (tag, props = {}, ...kids) => { const e = Object.assign(document.createElement(tag), props); e.append(...kids); return e; };
+const say = (el, t, ok = false) => { el.textContent = t; el.classList.toggle("ok", ok); };
+const errText = (e) => ERR[e?.code] || "حصل خطأ، جرب تاني.";
+const color = (s) => { let x = 0; for (const c of s) x = (x * 31 + c.charCodeAt(0)) % 360; return `hsl(${x} 35% 38%)`; };
+const when = (t) => new Date(t).toLocaleString("ar-EG", { dateStyle: "medium", timeStyle: "short" });
+
+let user = null, books = [], orders = [], cart = new Map(), phone = "", note = "", tab = "books";
+let offBooks, offOrders;
+
+function showTab(t) {
+  tab = t;
+  $("tBooks").classList.toggle("on", t === "books");
+  $("tOrders").classList.toggle("on", t === "orders");
+  $("booksView").hidden = t !== "books";
+  $("ordersView").hidden = t !== "orders";
+}
+$("tBooks").onclick = () => showTab("books");
+$("tOrders").onclick = () => showTab("orders");
+$("tLogin").onclick = () => authTab(true);
+$("tReg").onclick = () => authTab(false);
+function authTab(login) {
+  $("loginForm").hidden = !login; $("regForm").hidden = login;
+  $("tLogin").classList.toggle("on", login); $("tReg").classList.toggle("on", !login);
+  say($("authMsg"), "");
+}
+
+$("lBtn").onclick = async () => {
+  try { await api.login($("lId").value.trim(), $("lPass").value); } catch (e) { say($("authMsg"), errText(e)); }
+};
+$("rBtn").onclick = async () => {
+  const n = $("rName").value.trim();
+  if (!n) return say($("authMsg"), "اكتب اسمك.");
+  try {
+    await api.register(n, $("rEmail").value.trim(), $("rPass").value);
+    if (user) { user.name = n; $("userName").textContent = n; }
+  } catch (e) { say($("authMsg"), errText
