@@ -3,161 +3,158 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>مكتبة الرف الأخضر</title>
+<meta name="color-scheme" content="light">
+<title>مكتبة مكة المكرمة</title>
 <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#12302f;--paper:#eef2ef;--line:#d3ddd9;--brass:#b0802a;--muted:#5d716f;--danger:#a3341f;--ok:#1f6b45}
+:root{--ink:#1d2860;--paper:#fbf6ea;--yel:#f5b82e;--cor:#ee6c5f;--teal:#17a08f;--line:#e6dcc4;--mut:#6b6a7c}
 *{box-sizing:border-box}
-body{margin:0;font-family:Tajawal,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7}
-.top{background:var(--ink);color:#f2efe6;padding:16px 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;border-bottom:4px solid var(--brass)}
-.top h1{margin:0;font-family:"Reem Kufi",sans-serif;font-size:1.8rem}
-.top nav{display:flex;align-items:center;gap:10px}
-.banner{background:#fff3d6;border-bottom:1px solid #e3cf9b;padding:10px 22px;font-size:.95rem}
-main{max-width:980px;margin:24px auto;padding:0 14px}
-.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:16px}
-.card h2{margin:0 0 12px;font-family:"Reem Kufi",sans-serif;font-size:1.25rem}
-.auth{max-width:420px;margin:36px auto}
-.tabs{display:flex;gap:6px;margin-bottom:16px}
-.tab{flex:1;padding:10px;border:0;border-bottom:3px solid var(--line);background:none;font:inherit;font-weight:500;color:var(--muted);cursor:pointer}
-.tab.on{color:var(--ink);border-color:var(--brass)}
-.stack{display:flex;flex-direction:column;gap:12px}
-label{display:flex;flex-direction:column;gap:5px;font-weight:500}
-input,textarea,select{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:#fbfcfb;color:var(--ink);width:100%}
-:focus-visible{outline:3px solid var(--brass);outline-offset:1px}
-button{font:inherit;cursor:pointer;border-radius:6px}
-.primary{background:var(--ink);color:#fff;border:0;padding:10px 18px;font-weight:700}
-.primary:hover{background:#1c4a48}
-.ghost{background:none;border:1px solid #f2efe6;color:#f2efe6;padding:5px 12px}
-.small{background:none;border:1px solid var(--ink);color:var(--ink);padding:4px 12px}
-.danger{background:none;border:1px solid var(--danger);color:var(--danger);padding:4px 12px}
-.badge{background:var(--brass);color:#fff;padding:1px 10px;border-radius:99px;font-size:.85rem}
-.msg{min-height:1.3em;margin:10px 0 0;color:var(--danger);font-weight:500}
-.msg.ok{color:var(--ok)}
-.row{display:grid;grid-template-columns:2fr 1.5fr 1fr 90px auto;gap:10px}
-.layout{display:grid;grid-template-columns:1fr 300px;gap:16px;align-items:start}
-.shelf{display:flex;flex-direction:column;gap:10px}
-.book{display:grid;grid-template-columns:10px 1fr auto;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 14px}
-.spine{align-self:stretch;border-radius:4px}
-.book h3{margin:0;font-family:"Reem Kufi",sans-serif;font-size:1.15rem}
-.book p{margin:0;color:var(--muted)}
-.acts{display:flex;flex-direction:column;gap:6px;align-items:stretch;text-align:center}
-.acts span{font-size:.85rem;color:var(--muted)}
-.cart li{display:flex;justify-content:space-between;gap:8px;margin-bottom:4px}
-.cart ul{padding:0;margin:0 0 12px;list-style:none}
-.order{border-right:5px solid var(--brass)}
-.order header{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px}
-.order ul{margin:6px 0;padding-inline-start:20px}
-.muted{color:var(--muted)}
-.empty{text-align:center;color:var(--muted);padding:26px 0}
-@media(max-width:760px){.layout{grid-template-columns:1fr}.row{grid-template-columns:1fr 1fr}.row .primary{grid-column:1/-1}}
+body{margin:0;font-family:Tajawal,sans-serif;color:var(--ink);line-height:1.7;background:var(--paper) repeating-linear-gradient(transparent 0 31px,#e9e0c9 31px 32px)}
+button{font:inherit;cursor:pointer;border-radius:10px;border:0}
+input,select,textarea{font:inherit;width:100%;padding:10px 12px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
+.banner{background:#fff3d6;padding:8px 20px;font-size:.9rem;border-bottom:1px solid #e3cf9b}.banner.err{background:#fde3df;color:#7a1f10}
+header{background:var(--ink);color:#fff;padding:12px 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:20;border-bottom:4px solid var(--yel)}
+.logo{font-family:"Reem Kufi",sans-serif;font-size:1.6rem;line-height:1.2}.logo small{display:block;font-family:Tajawal;font-size:.8rem;color:var(--yel)}
+#acct,.bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.b{padding:7px 16px;font-weight:700;background:var(--yel);color:var(--ink);transition:transform .15s}.b:hover{transform:translateY(-2px)}
+.b.o{background:none;color:#fff;border:2px solid #fff6}.b.dk{background:var(--ink);color:#fff}
+#cartBtn{position:relative;background:var(--cor);color:#fff;padding:7px 16px;font-weight:700}
+#cnt{background:#fff;color:var(--cor);border-radius:99px;padding:0 8px;margin-inline-start:6px}
+.hero{position:relative;overflow:hidden;text-align:center;padding:46px 16px 40px;background:linear-gradient(135deg,#fff3c4,#ffd9d2 55%,#cdeee9)}
+.hero h1{margin:0;font-family:"Reem Kufi",sans-serif;font-size:clamp(2rem,6vw,3.6rem)}.hero p{margin:6px 0 0;font-size:1.15rem}
+.hero .fl{position:absolute;font-size:2.4rem;opacity:.85;animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-16px) rotate(8deg)}}
+.wrap{max-width:1150px;margin:22px auto;padding:0 14px;display:grid;grid-template-columns:240px 1fr;gap:20px;align-items:start}
+aside{background:#fff;border-radius:16px;padding:12px;border:2px solid var(--line);position:sticky;top:90px}
+aside h2{margin:4px 8px 8px;font-family:"Reem Kufi";font-size:1.1rem}
+.sec{display:flex;align-items:center;gap:10px;width:100%;padding:10px;background:none;text-align:right;font-weight:500;color:var(--ink);border-radius:12px;transition:.2s}
+.sec:hover{background:#f5efe0;transform:translateX(-4px)}
+.sec.on{background:var(--c);color:#fff}.sec i{margin-inline-start:auto;font-style:normal;font-size:.8rem;background:#0001;border-radius:99px;padding:0 8px}
+.tools{margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px;perspective:900px}
+.card3d{--rx:0deg;--ry:0deg;position:relative;background:#fff;border-radius:18px;padding:12px;border:2px solid var(--line);overflow:hidden;opacity:0;translate:0 30px;transition:transform .15s,box-shadow .2s,opacity .6s var(--d),translate .6s var(--d);transform:rotateX(var(--rx)) rotateY(var(--ry))}
+.card3d.in{opacity:1;translate:0 0}
+.card3d:hover{box-shadow:0 18px 34px #1d28603a;border-color:var(--c)}
+.card3d::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--mx,50%) 0,#fff9,transparent 55%);opacity:0;transition:.2s}.card3d:hover::after{opacity:1}
+.tile{height:130px;border-radius:12px;background:linear-gradient(135deg,var(--c),#fff0 170%),var(--c);display:grid;place-items:center;position:relative}
+.ic{font-size:3.6rem;animation:bob 4s ease-in-out infinite;filter:drop-shadow(0 6px 4px #0003)}
+.tag{position:absolute;top:8px;inset-inline-start:8px;background:#fff;color:var(--ink);font-style:normal;font-size:.72rem;padding:0 8px;border-radius:99px}
+.card3d h3{margin:10px 0 0;font-size:1rem;min-height:3.2em}.price{margin:0;font-weight:700;font-size:1.2rem;color:var(--c)}
+.buy{width:100%;margin-top:8px;padding:9px;background:var(--ink);color:#fff;font-weight:700;position:relative;overflow:hidden;transition:.2s}
+.buy:hover{background:var(--c);animation:pulse .8s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px #0000000f}}
+.del{position:absolute;top:8px;inset-inline-end:8px;background:#fff;color:var(--cor);padding:0 8px;z-index:2}
+.fly{position:fixed;left:0;top:0;font-size:2rem;z-index:99;pointer-events:none}
+.empty{text-align:center;color:var(--mut);padding:40px 0}
+dialog{border:0;border-radius:18px;padding:22px;width:min(440px,94vw);color:var(--ink);box-shadow:0 20px 60px #0006}
+dialog::backdrop{background:#1d286099;backdrop-filter:blur(3px)}dialog[open]{animation:pop .25s}
+@keyframes pop{from{transform:scale(.9);opacity:0}}
+dialog h2{margin:0 0 12px;font-family:"Reem Kufi"}.x{float:left;background:#f0e9d8;padding:2px 10px}
+.stack{display:flex;flex-direction:column;gap:10px}label{display:flex;flex-direction:column;gap:4px;font-weight:500}
+.msg{min-height:1.3em;margin:8px 0 0;color:var(--cor);font-weight:500}.msg.ok{color:var(--teal)}
+.lnk{background:none;color:var(--ink);text-decoration:underline;padding:4px}
+.line{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.q button{background:#f0e9d8;width:28px;height:28px}.q b{margin:0 8px}
+.ord{border-right:5px solid var(--yel);background:#fffdf6;padding:10px;border-radius:10px;margin-bottom:10px}.ord header{all:unset;display:flex;justify-content:space-between;gap:8px}
+.big{width:min(560px,94vw)}.scroll{max-height:60vh;overflow:auto}
+#toast{position:fixed;bottom:22px;left:50%;translate:-50% 90px;background:var(--ink);color:#fff;padding:10px 20px;border-radius:99px;z-index:100;transition:.35s}#toast.on{translate:-50% 0}
+footer{text-align:center;padding:26px;color:var(--mut)}
+@media(max-width:800px){.wrap{grid-template-columns:1fr}aside{position:static;display:flex;gap:6px;overflow-x:auto;padding:8px}aside h2{display:none}.sec{white-space:nowrap;width:auto}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
+<script>
+function showErr(m){var b=document.getElementById("banner");if(!b)return;b.hidden=false;b.className="banner err";b.textContent="حصل خطأ: "+m+" — افتح F12 ثم Console وابعت الخطأ."}
+addEventListener("error",function(e){showErr(e.message||"خطأ")});
+addEventListener("unhandledrejection",function(e){showErr((e.reason&&e.reason.message)||String(e.reason))});
+</script>
 </head>
 <body>
-<header class="top">
-  <h1>مكتبة الرف الأخضر</h1>
-  <nav id="userBar" hidden><span id="userName"></span><span id="role" class="badge"></span><button id="logout" class="ghost">تسجيل خروج</button></nav>
-</header>
 <div id="banner" class="banner" hidden></div>
+<header>
+  <div class="logo">📚 مكتبة مكة المكرمة<small>الأستاذ ياسر فوزي</small></div>
+  <div class="bar"><div id="acct"></div><button id="cartBtn">🛒 السلة<span id="cnt">0</span></button></div>
+</header>
+<section class="hero">
+  <span class="fl" style="top:14%;right:8%">✏️</span><span class="fl" style="top:58%;right:20%;animation-delay:-1s">📏</span>
+  <span class="fl" style="top:18%;left:10%;animation-delay:-2s">📚</span><span class="fl" style="top:60%;left:22%;animation-delay:-3s">🖍️</span>
+  <h1>مكتبة مكة المكرمة</h1><p>كل اللي محتاجه للدراسة: أقلام، تصوير، كتب، وحجز كتب المنصات التعليمية</p>
+</section>
+<div class="wrap">
+  <aside><h2>الأقسام</h2><div id="side"></div></aside>
+  <main>
+    <div class="tools"><input id="q" type="search" placeholder="🔍 ابحث عن منتج..."></div>
+    <div id="grid" class="grid"></div><p id="empty" class="empty" hidden></p>
+  </main>
+</div>
+<footer>مكتبة مكة المكرمة — صاحبها الأستاذ ياسر فوزي</footer>
 
-<main>
-  <section id="authView" class="card auth">
-    <div class="tabs"><button id="tLogin" class="tab on">تسجيل الدخول</button><button id="tReg" class="tab">حساب جديد</button></div>
-    <div id="loginForm" class="stack">
-      <label>اسم المستخدم أو البريد الإلكتروني<input id="lId" type="text" dir="ltr" autocomplete="username"></label>
-      <label>كلمة المرور<input id="lPass" type="password" dir="ltr" autocomplete="current-password"></label>
-      <button id="lBtn" class="primary">دخول</button>
-    </div>
-    <div id="regForm" class="stack" hidden>
-      <label>الاسم<input id="rName" type="text" autocomplete="name"></label>
-      <label>البريد الإلكتروني<input id="rEmail" type="email" dir="ltr" autocomplete="email"></label>
-      <label>كلمة المرور (6 حروف على الأقل)<input id="rPass" type="password" dir="ltr" autocomplete="new-password"></label>
-      <button id="rBtn" class="primary">إنشاء الحساب</button>
-    </div>
-    <p id="authMsg" class="msg" role="alert"></p>
-  </section>
-
-  <section id="appView" hidden>
-    <div class="tabs"><button id="tBooks" class="tab on">الكتب</button><button id="tOrders" class="tab"></button></div>
-
-    <div id="booksView">
-      <div id="adminPanel" class="card" hidden>
-        <h2>إضافة كتاب</h2>
-        <div class="row">
-          <input id="bTitle" placeholder="اسم الكتاب"><input id="bAuthor" placeholder="المؤلف">
-          <input id="bCat" placeholder="التصنيف"><input id="bCopies" type="number" min="1" value="1">
-          <button id="bAdd" class="primary">إضافة</button>
-        </div>
-        <p id="adminMsg" class="msg" role="alert"></p>
-      </div>
-      <div class="card"><input id="search" type="search" placeholder="ابحث باسم الكتاب أو المؤلف أو التصنيف"></div>
-      <div class="layout">
-        <div><div id="books" class="shelf"></div><p id="noBooks" class="empty" hidden></p></div>
-        <aside id="cart" class="card cart"></aside>
-      </div>
-    </div>
-
-    <div id="ordersView" hidden><div id="orders"></div><p id="noOrders" class="empty" hidden></p></div>
-  </section>
-</main>
+<dialog id="loginDlg"><button class="x">×</button><h2>تسجيل الدخول</h2>
+  <div class="stack"><label>اسم المستخدم أو البريد<input id="lId" dir="ltr" autocomplete="username"></label>
+  <label>كلمة المرور<input id="lPass" type="password" dir="ltr" autocomplete="current-password"></label>
+  <button id="lBtn" class="b dk">دخول</button><button id="toReg" class="lnk">ليس لديك حساب؟ سجّل حساب جديد</button></div><p id="lMsg" class="msg" role="alert"></p></dialog>
+<dialog id="regDlg"><button class="x">×</button><h2>حساب جديد</h2>
+  <div class="stack"><label>الاسم<input id="rName" autocomplete="name"></label>
+  <label>البريد الإلكتروني<input id="rEmail" type="email" dir="ltr" autocomplete="email"></label>
+  <label>كلمة المرور (6 على الأقل)<input id="rPass" type="password" dir="ltr" autocomplete="new-password"></label>
+  <button id="rBtn" class="b dk">إنشاء الحساب</button><button id="toLogin" class="lnk">عندك حساب؟ سجّل الدخول</button></div><p id="rMsg" class="msg" role="alert"></p></dialog>
+<dialog id="cartDlg"><button class="x">×</button><h2>🛒 سلتك</h2><div id="cartList" class="scroll"></div>
+  <div class="stack" id="cartForm"><b id="total"></b><input id="ph" dir="ltr" placeholder="رقم الموبايل"><textarea id="nt" rows="2" placeholder="ملاحظات أو عنوان التسليم"></textarea>
+  <button id="sendBtn" class="b dk">إرسال الطلب</button></div><p id="cartMsg" class="msg" role="alert"></p></dialog>
+<dialog id="ordDlg" class="big"><button class="x">×</button><h2 id="ordTitle"></h2><div id="ordList" class="scroll"></div></dialog>
+<dialog id="addDlg"><button class="x">×</button><h2>إضافة منتج</h2>
+  <div class="stack"><input id="aTitle" placeholder="اسم المنتج"><select id="aSec"></select>
+  <input id="aPrice" type="number" min="0" placeholder="السعر بالجنيه"><input id="aIc" placeholder="إيموجي للمنتج (مثلاً ✏️)" maxlength="4">
+  <button id="aBtn" class="b dk">إضافة</button></div><p id="aMsg" class="msg" role="alert"></p></dialog>
+<div id="toast"></div>
 
 <script type="module">
-/* ============ إعدادات Firebase لمشروع library-cf11d ============ */
-const firebaseConfig = {
-  apiKey: "AIzaSyAdbgUr0F24r0B9wWjdIZgMCvFxExPDch0",
-  authDomain: "library-cf11d.firebaseapp.com",
-  projectId: "library-cf11d",
-  storageBucket: "library-cf11d.firebasestorage.app",
-  messagingSenderId: "845112290756",
-  appId: "1:845112290756:web:9fb7ec85acaf64cf1d0891",
-  measurementId: "G-D07WM2RFQD"
-};
-/* ============================================================== */
+/* ====== حط إعدادات Firebase هنا (سيبها كده للتجربة على جهازك) ====== */
+const CFG = { apiKey: "حط-الكود-هنا", authDomain: "your-project.firebaseapp.com", projectId: "your-project", appId: "your-app-id" };
+/* ================================================================== */
+const ADMIN = "ya123", ADMIN_MAIL = ADMIN + "@library.app", ST = ["جديد", "جاري التجهيز", "تم التسليم", "ملغي"];
+const live = !CFG.apiKey.includes("حط");
+const mail = (id) => id.includes("@") ? id : id.toLowerCase() + "@library.app";
+const ERR = { "auth/invalid-credential": "اسم المستخدم أو كلمة المرور غلط.", "auth/invalid-email": "شكل البريد غير صحيح.",
+  "auth/email-already-in-use": "البريد ده مسجل قبل كده.", "auth/weak-password": "كلمة المرور لازم 6 حروف على الأقل.",
+  "auth/too-many-requests": "محاولات كتير، استنى شوية.", "permission-denied": "مفيش صلاحية. راجع قواعد Firestore." };
+const SEC = [
+  { id: "all", name: "الكل", ic: "✨", c: "#1d2860" }, { id: "pens", name: "الأقلام والأدوات", ic: "✏️", c: "#d99a0b" },
+  { id: "copy", name: "التصوير والطباعة", ic: "🖨️", c: "#17a08f" }, { id: "books", name: "الكتب", ic: "📚", c: "#ee6c5f" },
+  { id: "edu", name: "كتب المنصات التعليمية (حجز)", ic: "🎓", c: "#7a4fd0" }];
+const SEED = [
+  { title: "أقلام حبر جاف أزرق (12)", sec: "pens", price: 60, ic: "🖊️" }, { title: "أقلام رصاص HB (12)", sec: "pens", price: 45, ic: "✏️" },
+  { title: "دفتر سلك A4", sec: "pens", price: 35, ic: "📓" }, { title: "تصوير ورق A4 (50 ورقة)", sec: "copy", price: 25, ic: "🖨️" },
+  { title: "طباعة ملونة (للورقة)", sec: "copy", price: 5, ic: "🎨" }, { title: "رواية عربية مختارة", sec: "books", price: 120, ic: "📖" },
+  { title: "كتاب منصة تعليمية - حجز مسبق", sec: "edu", price: 180, ic: "🎓" }, { title: "ملازم المنصة - حجز مسبق", sec: "edu", price: 150, ic: "📘" }];
 
-const ADMIN_USER = "ammin";
-const ADMIN_EMAIL = ADMIN_USER + "@library.app";
-const STATUSES = ["جديد", "جاري التجهيز", "تم التسليم", "ملغي"];
-const live = !firebaseConfig.apiKey.includes("حط");
-const toEmail = (id) => id.includes("@") ? id : id.toLowerCase() + "@library.app";
-const ERR = {
-  "auth/invalid-credential": "اسم المستخدم أو كلمة المرور غلط.",
-  "auth/invalid-email": "شكل البريد غير صحيح.",
-  "auth/email-already-in-use": "البريد ده مسجل قبل كده.",
-  "auth/weak-password": "كلمة المرور لازم 6 حروف على الأقل.",
-  "auth/too-many-requests": "محاولات كتير، استنى شوية.",
-  "permission-denied": "مفيش صلاحية. اتأكد من قواعد Firestore."
-};
-
-/* ---------------- طبقة البيانات: Firebase أو تجربة محلية ---------------- */
+/* ---------- طبقة البيانات: Firebase أو تجربة محلية ---------- */
 let api;
 if (live) {
   const B = "https://www.gstatic.com/firebasejs/10.12.2/";
-  const [{ initializeApp }, A, F] = await Promise.all([
-    import(B + "firebase-app.js"), import(B + "firebase-auth.js"), import(B + "firebase-firestore.js")
-  ]);
-  const app = initializeApp(firebaseConfig), auth = A.getAuth(app), db = F.getFirestore(app);
+  const [{ initializeApp }, A, F] = await Promise.all([import(B + "firebase-app.js"), import(B + "firebase-auth.js"), import(B + "firebase-firestore.js")]);
+  const app = initializeApp(CFG), auth = A.getAuth(app), db = F.getFirestore(app);
   const ms = (t) => t?.toMillis?.() ?? Date.now();
-  const list = (s) => s.docs.map((d) => ({ id: d.id, ...d.data(), createdAt: ms(d.data().createdAt) }))
-                           .sort((a, b) => b.createdAt - a.createdAt);
+  const list = (s) => s.docs.map((d) => ({ id: d.id, ...d.data(), createdAt: ms(d.data().createdAt) })).sort((a, b) => b.createdAt - a.createdAt);
+  let cbRef;
+  const toU = (u) => u && { uid: u.uid, name: u.displayName || u.email, email: u.email, isAdmin: u.email === ADMIN_MAIL };
   api = {
-    onAuth: (cb) => A.onAuthStateChanged(auth, (u) => cb(u && { uid: u.uid, name: u.displayName || u.email, email: u.email, isAdmin: u.email === ADMIN_EMAIL })),
-    login: (id, p) => A.signInWithEmailAndPassword(auth, toEmail(id), p),
-    register: async (n, e, p) => { const c = await A.createUserWithEmailAndPassword(auth, e, p); await A.updateProfile(c.user, { displayName: n }); },
+    onAuth: (cb) => { cbRef = cb; A.onAuthStateChanged(auth, (u) => cb(toU(u))); },
+    login: (id, p) => A.signInWithEmailAndPassword(auth, mail(id), p),
+    register: async (n, e, p) => { const c = await A.createUserWithEmailAndPassword(auth, e, p); await A.updateProfile(c.user, { displayName: n }); cbRef(toU(auth.currentUser)); },
     logout: () => A.signOut(auth),
-    watchBooks: (cb, err) => F.onSnapshot(F.collection(db, "books"), (s) => cb(list(s)), err),
-    addBook: (b) => F.addDoc(F.collection(db, "books"), { ...b, createdAt: F.serverTimestamp() }),
-    delBook: (id) => F.deleteDoc(F.doc(db, "books", id)),
+    watchProducts: (cb, er) => F.onSnapshot(F.collection(db, "products"), (s) => cb(list(s).reverse()), er),
+    addProduct: (p) => F.addDoc(F.collection(db, "products"), { ...p, createdAt: F.serverTimestamp() }),
+    delProduct: (id) => F.deleteDoc(F.doc(db, "products", id)),
     addOrder: (o) => F.addDoc(F.collection(db, "orders"), { ...o, createdAt: F.serverTimestamp() }),
-    watchOrders: (u, cb, err) => {
-      const c = F.collection(db, "orders");
-      return F.onSnapshot(u.isAdmin ? c : F.query(c, F.where("uid", "==", u.uid)), (s) => cb(list(s)), err);
-    },
-    setStatus: (id, status) => F.updateDoc(F.doc(db, "orders", id), { status })
+    watchOrders: (u, cb, er) => { const c = F.collection(db, "orders"); return F.onSnapshot(u.isAdmin ? c : F.query(c, F.where("uid", "==", u.uid)), (s) => cb(list(s)), er); },
+    setStatus: (o, status) => F.updateDoc(F.doc(db, "orders", o.id), { status })
   };
 } else {
-  const K = "library-demo";
-  const load = () => JSON.parse(localStorage.getItem(K) || "null") ||
-    { users: [{ uid: "admin", name: "المدير", email: ADMIN_USER, pass: "yu1122", isAdmin: true }], books: [], orders: [], session: null };
-  let D = load, authCb; D = load();
+  const K = "makka-demo";
+  const load = () => JSON.parse(localStorage.getItem(K) || "null") || { users: [{ uid: "admin", name: "الأستاذ ياسر فوزي", email: ADMIN, pass: "demo1234", isAdmin: true }],
+    products: SEED.map((p, i) => ({ ...p, id: "p" + i, createdAt: i })), orders: [], session: null };
+  let D = load(), authCb;
   const subs = new Set();
   const save = () => { localStorage.setItem(K, JSON.stringify(D)); subs.forEach((f) => f()); };
   const cur = () => { const u = D.users.find((x) => x.uid === D.session); return u && { uid: u.uid, name: u.name, email: u.email, isAdmin: !!u.isAdmin }; };
@@ -165,65 +162,157 @@ if (live) {
   addEventListener("storage", () => { D = load(); subs.forEach((f) => f()); });
   api = {
     onAuth: (cb) => { authCb = cb; cb(cur()); },
-    login: async (id, p) => {
-      const u = D.users.find((x) => x.email.toLowerCase() === id.toLowerCase() && x.pass === p);
-      if (!u) throw { code: "auth/invalid-credential" };
-      D.session = u.uid; save(); authCb(cur());
-    },
+    login: async (id, p) => { const u = D.users.find((x) => x.email.toLowerCase() === id.toLowerCase() && x.pass === p); if (!u) throw { code: "auth/invalid-credential" }; D.session = u.uid; save(); authCb(cur()); },
     register: async (n, e, p) => {
       if (p.length < 6) throw { code: "auth/weak-password" };
       if (D.users.some((x) => x.email.toLowerCase() === e.toLowerCase())) throw { code: "auth/email-already-in-use" };
-      const u = { uid: "u" + Date.now(), name: n, email: e, pass: p };
-      D.users.push(u); D.session = u.uid; save(); authCb(cur());
+      const u = { uid: "u" + Date.now(), name: n, email: e, pass: p }; D.users.push(u); D.session = u.uid; save(); authCb(cur());
     },
     logout: async () => { D.session = null; save(); authCb(null); },
-    watchBooks: (cb) => watch(() => cb([...D.books])),
-    addBook: async (b) => { D.books.unshift({ id: "b" + Date.now(), ...b, createdAt: Date.now() }); save(); },
-    delBook: async (id) => { D.books = D.books.filter((b) => b.id !== id); save(); },
+    watchProducts: (cb) => watch(() => cb([...D.products])),
+    addProduct: async (p) => { D.products.push({ id: "p" + Date.now() + Math.random(), ...p, createdAt: Date.now() }); save(); },
+    delProduct: async (id) => { D.products = D.products.filter((p) => p.id !== id); save(); },
     addOrder: async (o) => { D.orders.unshift({ id: "o" + Date.now(), ...o, createdAt: Date.now() }); save(); },
     watchOrders: (u, cb) => watch(() => cb(D.orders.filter((o) => u.isAdmin || o.uid === u.uid))),
-    setStatus: async (id, s) => { D.orders.find((o) => o.id === id).status = s; save(); }
+    setStatus: async (o, s) => { D.orders.find((x) => x.id === o.id).status = s; save(); }
   };
-  const bn = document.getElementById("banner");
-  bn.hidden = false;
-  bn.textContent = "وضع التجربة: البيانات محفوظة على جهازك بس، والطلبات مش هتوصل للمدير من جهاز تاني. عشان تشتغل بجد حط إعدادات Firebase في الكود.";
+  const bn = document.getElementById("banner"); bn.hidden = false;
+  bn.textContent = "وضع التجربة: البيانات على جهازك بس. عشان الطلبات توصل للأستاذ ياسر من أي جهاز حط إعدادات Firebase في الكود.";
 }
 
-/* ---------------- الواجهة ---------------- */
+/* ---------- الواجهة (دوال صغيرة) ---------- */
 const $ = (id) => document.getElementById(id);
-const h = (tag, props = {}, ...kids) => { const e = Object.assign(document.createElement(tag), props); e.append(...kids); return e; };
-const say = (el, t, ok = false) => { el.textContent = t; el.classList.toggle("ok", ok); };
+const h = (t, p = {}, ...k) => { const e = Object.assign(document.createElement(t), p); e.append(...k); return e; };
+const money = (n) => Number(n).toLocaleString("ar-EG") + " ج";
+const say = (id, t, ok = false) => { $(id).textContent = t; $(id).classList.toggle("ok", ok); };
 const errText = (e) => ERR[e?.code] || "حصل خطأ، جرب تاني.";
-const color = (s) => { let x = 0; for (const c of s) x = (x * 31 + c.charCodeAt(0)) % 360; return `hsl(${x} 35% 38%)`; };
 const when = (t) => new Date(t).toLocaleString("ar-EG", { dateStyle: "medium", timeStyle: "short" });
+const secOf = (id) => SEC.find((s) => s.id === id) || SEC[1];
+const S = { user: null, prods: [], orders: [], cart: new Map(), sec: "all", q: "", pending: false };
+let offO;
+const bad = (e) => toast(errText(e));
+let tt;
+function toast(m) { const t = $("toast"); t.textContent = m; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 2600); }
+document.querySelectorAll(".x").forEach((b) => (b.onclick = () => b.closest("dialog").close()));
 
-let user = null, books = [], orders = [], cart = new Map(), phone = "", note = "", tab = "books";
-let offBooks, offOrders;
-
-function showTab(t) {
-  tab = t;
-  $("tBooks").classList.toggle("on", t === "books");
-  $("tOrders").classList.toggle("on", t === "orders");
-  $("booksView").hidden = t !== "books";
-  $("ordersView").hidden = t !== "orders";
-}
-$("tBooks").onclick = () => showTab("books");
-$("tOrders").onclick = () => showTab("orders");
-$("tLogin").onclick = () => authTab(true);
-$("tReg").onclick = () => authTab(false);
-function authTab(login) {
-  $("loginForm").hidden = !login; $("regForm").hidden = login;
-  $("tLogin").classList.toggle("on", login); $("tReg").classList.toggle("on", !login);
-  say($("authMsg"), "");
+/* الأقسام */
+function drawSide() {
+  $("side").replaceChildren(...SEC.map((s) => {
+    const n = s.id === "all" ? S.prods.length : S.prods.filter((p) => p.sec === s.id).length;
+    return h("button", { className: "sec" + (S.sec === s.id ? " on" : ""), style: `--c:${s.c}`, onclick: () => { S.sec = s.id; drawSide(); drawGrid(); } }, s.ic, h("span", {}, s.name), h("i", {}, n));
+  }));
 }
 
-$("lBtn").onclick = async () => {
-  try { await api.login($("lId").value.trim(), $("lPass").value); } catch (e) { say($("authMsg"), errText(e)); }
+/* بطاقة منتج بتأثيرات */
+const tilt = (el) => {
+  el.onpointermove = (e) => { const r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    el.style.setProperty("--ry", x * 12 + "deg"); el.style.setProperty("--rx", -y * 12 + "deg"); el.style.setProperty("--mx", (x + .5) * 100 + "%"); };
+  el.onpointerleave = () => { el.style.setProperty("--ry", "0deg"); el.style.setProperty("--rx", "0deg"); };
 };
-$("rBtn").onclick = async () => {
-  const n = $("rName").value.trim();
-  if (!n) return say($("authMsg"), "اكتب اسمك.");
+const card = (p, i) => {
+  const s = secOf(p.sec), booking = p.sec === "edu";
+  const el = h("article", { className: "card3d", style: `--c:${s.c};--d:${Math.min(i, 12) * 60}ms` },
+    h("div", { className: "tile" }, h("span", { className: "ic" }, p.ic || s.ic), h("i", { className: "tag" }, booking ? "حجز مسبق" : s.name)),
+    h("h3", {}, p.title), h("p", { className: "price" }, money(p.price)),
+    h("button", { className: "buy", textContent: booking ? "احجز الآن 🎓" : "اطلب الآن 🛒", onclick: (e) => add(p, e.currentTarget) }));
+  if (S.user?.isAdmin) el.append(h("button", { className: "del", textContent: "حذف", onclick: async () => { if (confirm(`حذف "${p.title}"؟`)) try { await api.delProduct(p.id); } catch (e) { bad(e); } } }));
+  tilt(el); return el;
+};
+const io = "IntersectionObserver" in window ? new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .1 }) : null;
+function drawGrid() {
+  const q = S.q.trim().toLowerCase();
+  const list = S.prods.filter((p) => (S.sec === "all" || p.sec === S.sec) && p.title.toLowerCase().includes(q));
+  const cards = list.map(card);
+  $("grid").replaceChildren(...cards);
+  cards.forEach((c) => (io ? io.observe(c) : c.classList.add("in")));
+  $("empty").hidden = list.length > 0;
+  $("empty").textContent = S.prods.length ? "مفيش منتجات مطابقة." : "المنتجات هتظهر هنا قريب.";
+}
+$("q").oninput = (e) => { S.q = e.target.value; drawGrid(); };
+
+/* السلة */
+const count = () => [...S.cart.values()].reduce((a, c) => a + c.q, 0);
+const sum = () => [...S.cart.values()].reduce((a, c) => a + c.q * c.p.price, 0);
+function fly(from, ic) {
+  const a = from.getBoundingClientRect(), b = $("cartBtn").getBoundingClientRect(), f = h("span", { className: "fly", textContent: ic });
+  document.body.append(f);
+  f.animate([{ transform: `translate(${a.left}px,${a.top}px) scale(1)`, opacity: 1 }, { transform: `translate(${b.left}px,${b.top}px) scale(.3)`, opacity: .4 }], { duration: 700, easing: "ease-in" })
+    .onfinish = () => { f.remove(); $("cartBtn").animate([{ transform: "scale(1.2)" }, { transform: "scale(1)" }], 300); };
+}
+function add(p, btn) {
+  const c = S.cart.get(p.id); S.cart.set(p.id, { p, q: (c?.q || 0) + 1 });
+  fly(btn, p.ic || secOf(p.sec).ic); toast("اتضاف للسلة ✔"); drawCart();
+}
+function drawCart() {
+  $("cnt").textContent = count();
+  const rows = [...S.cart.values()].map(({ p, q }) => h("div", { className: "line" }, h("span", {}, p.title),
+    h("span", { className: "q" }, h("button", { textContent: "−", onclick: () => step(p, -1) }), h("b", {}, q), h("button", { textContent: "+", onclick: () => step(p, 1) }))));
+  $("cartList").replaceChildren(...(rows.length ? rows : [h("p", { className: "empty" }, "السلة فاضية، اختار حاجة تعجبك 😉")]));
+  $("cartForm").hidden = !rows.length; $("total").textContent = "الإجمالي: " + money(sum());
+}
+const step = (p, d) => { const c = S.cart.get(p.id), q = c.q + d; q <= 0 ? S.cart.delete(p.id) : S.cart.set(p.id, { p, q }); drawCart(); };
+const openCart = () => { drawCart(); say("cartMsg", ""); $("cartDlg").showModal(); };
+$("cartBtn").onclick = openCart;
+$("sendBtn").onclick = async () => {
+  if (!S.user) { S.pending = true; $("cartDlg").close(); say("lMsg", "سجّل دخولك الأول عشان نكمل طلبك."); return $("loginDlg").showModal(); }
+  const ph = $("ph").value.trim();
+  if (!/^\+?[0-9\s-]{8,15}$/.test(ph)) return say("cartMsg", "اكتب رقم موبايل صحيح (أرقام فقط).");
+  const items = [...S.cart.values()].map(({ p, q }) => ({ id: p.id, title: p.title, q, price: p.price, sec: p.sec }));
   try {
-    await api.register(n, $("rEmail").value.trim(), $("rPass").value);
-    if (user) { user.name = n; $("userName").textContent = n; }
-  } catch (e) { say($("authMsg"), errText
+    await api.addOrder({ uid: S.user.uid, name: S.user.name, email: S.user.email, phone: ph, note: $("nt").value.trim(), items, total: sum(), status: ST[0] });
+    S.cart.clear(); $("ph").value = $("nt").value = ""; drawCart(); $("cartDlg").close(); toast("وصل طلبك للأستاذ ياسر ✔"); openOrders();
+  } catch (e) { say("cartMsg", errText(e)); }
+};
+
+/* الطلبات */
+function drawOrders() {
+  const adm = S.user?.isAdmin;
+  $("ordTitle").textContent = adm ? "كل الطلبات" : "طلباتي";
+  $("ordList").replaceChildren(...(S.orders.length ? S.orders.map((o) => {
+    const st = adm ? h("select", { style: "width:auto", onchange: async (e) => { try { await api.setStatus(o, e.target.value); } catch (x) { bad(x); } } },
+      ...ST.map((s) => h("option", { value: s, textContent: s, selected: s === o.status }))) : h("b", {}, o.status);
+    return h("div", { className: "ord" }, h("header", {}, h("b", {}, adm ? `${o.name} — ${o.phone}` : when(o.createdAt)), st),
+      h("ul", {}, ...o.items.map((i) => h("li", {}, `${i.title} × ${i.q}${i.sec === "edu" ? " (حجز)" : ""}`))),
+      h("p", {}, "الإجمالي: " + money(o.total || 0) + (o.note ? " — " + o.note : "") + (adm ? ` — ${when(o.createdAt)}` : "")));
+  }) : [h("p", { className: "empty" }, "مفيش طلبات لسه.")]));
+}
+const openOrders = () => { drawOrders(); $("ordDlg").showModal(); };
+
+/* الحساب */
+function drawUser() {
+  const u = S.user, a = $("acct");
+  if (!u) { a.replaceChildren(h("button", { className: "b", textContent: "دخول", onclick: () => { say("lMsg", ""); $("loginDlg").showModal(); } }),
+    h("button", { className: "b o", textContent: "حساب جديد", onclick: () => { say("rMsg", ""); $("regDlg").showModal(); } })); return; }
+  const fresh = S.orders.filter((o) => o.status === ST[0]).length;
+  a.replaceChildren(h("span", {}, "أهلاً " + u.name), h("button", { className: "b", textContent: u.isAdmin ? `الطلبات${fresh ? ` (${fresh} جديد)` : ""}` : "طلباتي", onclick: openOrders }));
+  if (u.isAdmin) a.append(h("button", { className: "b", textContent: "+ منتج", onclick: () => { say("aMsg", ""); $("addDlg").showModal(); } }));
+  if (u.isAdmin && live && !S.prods.length) a.append(h("button", { className: "b o", textContent: "منتجات تجريبية", onclick: () => SEED.forEach((p) => api.addProduct(p).catch(bad)) }));
+  a.append(h("button", { className: "b o", textContent: "خروج", onclick: () => api.logout() }));
+}
+$("toReg").onclick = () => { $("loginDlg").close(); say("rMsg", ""); $("regDlg").showModal(); };
+$("toLogin").onclick = () => { $("regDlg").close(); say("lMsg", ""); $("loginDlg").showModal(); };
+$("lBtn").onclick = async () => { try { await api.login($("lId").value.trim(), $("lPass").value); } catch (e) { say("lMsg", errText(e)); } };
+$("rBtn").onclick = async () => {
+  const n = $("rName").value.trim(); if (!n) return say("rMsg", "اكتب اسمك.");
+  try { await api.register(n, $("rEmail").value.trim(), $("rPass").value); } catch (e) { say("rMsg", errText(e)); }
+};
+$("aSec").replaceChildren(...SEC.slice(1).map((s) => h("option", { value: s.id, textContent: s.name })));
+$("aBtn").onclick = async () => {
+  const title = $("aTitle").value.trim(), price = Number($("aPrice").value);
+  if (!title || !(price >= 0) || $("aPrice").value === "") return say("aMsg", "اكتب اسم المنتج وسعره.");
+  try { await api.addProduct({ title, sec: $("aSec").value, price, ic: $("aIc").value.trim() }); ["aTitle", "aPrice", "aIc"].forEach((i) => ($(i).value = "")); say("aMsg", "تمت الإضافة.", true); }
+  catch (e) { say("aMsg", errText(e)); }
+};
+
+/* تشغيل */
+api.watchProducts((l) => { S.prods = l; drawSide(); drawGrid(); drawUser(); }, bad);
+api.onAuth((u) => {
+  S.user = u; offO?.(); offO = null; S.orders = [];
+  document.querySelectorAll("dialog[open]").forEach((d) => d.close());
+  drawUser(); drawGrid();
+  if (u) { offO = api.watchOrders(u, (l) => { S.orders = l; drawUser(); if ($("ordDlg").open) drawOrders(); }, bad); if (S.pending && S.cart.size) { S.pending = false; openCart(); } }
+});
+drawSide(); drawCart();
+</script>
+</body>
+</html>
