@@ -110,7 +110,14 @@ addEventListener("unhandledrejection",function(e){showErr((e.reason&&e.reason.me
 
 <script type="module">
 /* ====== حط إعدادات Firebase هنا (سيبها كده للتجربة على جهازك) ====== */
-const CFG = { apiKey: "حط-الكود-هنا", authDomain: "your-project.firebaseapp.com", projectId: "your-project", appId: "your-app-id" };
+const CFG = {
+  apiKey: "AIzaSyAdbgUr0F24r0B9wWjdIZgMCvFxExPDch0",
+  authDomain: "library-cf11d.firebaseapp.com",
+  projectId: "library-cf11d",
+  storageBucket: "library-cf11d.firebasestorage.app",
+  messagingSenderId: "845112290756",
+  appId: "1:845112290756:web:9fb7ec85acaf64cf1d0891"
+};
 /* ================================================================== */
 const ADMIN = "ya123", ADMIN_MAIL = ADMIN + "@library.app", ST = ["جديد", "جاري التجهيز", "تم التسليم", "ملغي"];
 const live = !CFG.apiKey.includes("حط");
